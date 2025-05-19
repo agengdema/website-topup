@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" href="../bg/favicon.ico" type="image/x-icon">
+    <title>Daftar Harga - Dream Store</title>
+    <script src="../javascript/script.js" defer></script>
+    <script src="../javascript/chat.js" defer></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <script src="../javascript/user.js" defer></script>
+</head>
+
+<body>
+    <!--ini tombol chat-->
+    <button id="chat-toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="lucide lucide-message-circle-icon lucide-message-circle">
+            <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" />
+        </svg>
+    </button>
+
+    <!--ini tampilan layar-->
+    <div id="chat-box">
+        <div id="chat-header">DreamStore Assistant</div>
+        <div id="chat-messages"></div>
+        <div id="chat-input">
+            <input type="text" id="message-input" placeholder="Ketik pesan..." />
+            <button id="send-button">Kirim</button>
+        </div>
+    </div>
+
+    <!--Header-->
+    <header class="header">
+        <div class="left-header">
+            <div class="logo">
+                <a href="../html/index.html">
+                    <img src="../bg/logo.png" width="40" height="40" />
+                </a>
+            </div>
+
+            <!--item dengan svg di kiri-->
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="../html/index.html">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" />
+                                    <path
+                                        d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                                </svg>
+                                Beranda
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="../html/pricelist.html">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    class="lucide lucide-clipboard-list-icon lucide-clipboard-list">
+                                    <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
+                                    <path
+                                        d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+                                    <path d="M12 11h4" />
+                                    <path d="M12 16h4" />
+                                    <path d="M8 11h.01" />
+                                    <path d="M8 16h.01" />
+                                </svg>
+                                Daftar Harga
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="../html/about.html">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M9 7m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
+                                    <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                                    <path d="M21 21v-2a4 4 0 0 0 -3 -3.85" />
+                                </svg>
+                                Tentang
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="../html/contact.html">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <rect width="20" height="16" x="2" y="4" rx="2" />
+                                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                                </svg>
+                                Contact
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        <!--Tombol search di kanan-->
+        <div class="right-header">
+            <div class="search-box">
+                <button class="search-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 26 26" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8" />
+                        <path d="m21 21-4.3-4.3" />
+                    </svg>
+                </button>
+                <input type="text" id="searchInput" placeholder="Cari Game atau Voucher" class="search-input" />
+                <div id="suggestions" class="suggestions-box"></div>
+            </div>
+            <div id="authSection">
+                <div class="user-info" id="userInfo">
+                    <a href="../html/login.html" class="btn-log">Masuk</a>
+                    <a href="../html/register.html" class="btn-daftar">Daftar</a>
+                </div>
+
+                <div class="user-info" id="userInfo">
+                    <button class="user-button" id="userButton">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-circle-user-icon lucide-circle-user">
+                            <circle cx="12" cy="12" r="10" />
+                            <circle cx="12" cy="10" r="3" />
+                            <path d="M7 20.662V19a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v1.662" />
+                        </svg>
+                        <span id="usernameDisplay"></span>
+                    </button>
+                    <div class="user-dropdown" id="userDropdown" style="display: none;">
+                        <button id="logoutButton">Logout</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </header>
+
+    <!--Main Content-->
+    <!--nama game-->
+    <div class="game-price-box">
+        <div class="game-title">Free Fire</div>
+        <div id="ff-price-list" class="game-price-list">
+        </div>
+    </div>
+
+    <!--item dan harga-->
+    <div id="ff-original-list" style="display: none;">
+        <div class="ff-package-card">
+            <div class="ff-package-badge">TERPOPULER</div>
+            <div class="ff-package-image">
+                <img src="../iconpay/ff-diamond-1.png">
+            </div>
+            <div class="ff-package-name">12 Diamonds</div>
+            <div class="ff-package-price">Rp 3.397</div>
+        </div>
+        <div class="ff-package-card">
+            <div class="ff-package-image">
+                <img src="../iconpay/ff-diamond-1.png">
+            </div>
+            <div class="ff-package-name">50 Diamonds</div>
+            <div class="ff-package-price">Rp 6.600</div>
+        </div>
+        <div class="ff-package-card">
+            <div class="ff-package-badge">TERPOPULER</div>
+            <div class="ff-package-image">
+                <img src="../iconpay/ff-diamond-1.png">
+            </div>
+            <div class="ff-package-name">70 Diamonds</div>
+            <div class="ff-package-price">Rp 10.999</div>
+        </div>
+        <div class="ff-package-card">
+            <div class="ff-package-image">
+                <img src="../iconpay/ff-diamond-2.png">
+            </div>
+            <div class="ff-package-name">140 Diamonds</div>
+            <div class="ff-package-price">Rp 18.800</div>
+        </div>
+        <div class="ff-package-card">
+            <div class="ff-package-image">
+                <img src="../iconpay/ff-diamond-2.png">
+            </div>
+            <div class="ff-package-name">210 Diamonds</div>
+            <div class="ff-package-price">Rp 26.150</div>
+        </div>
+        <div class="ff-package-card">
+            <div class="ff-discount-label">-32%</div>
+            <div class="ff-package-image">
+                <img src="../iconpay/ff-diamond-2.png">
+            </div>
+            <div class="ff-package-name">280 Diamonds</div>
+            <div class="ff-package-price-original">Rp 34.680</div>
+            <div class="ff-package-price">Rp 29.631</div>
+        </div>
+        <div class="ff-package-card">
+            <div class="ff-package-image">
+                <img src="../iconpay/ff-diamond-2.png">
+            </div>
+            <div class="ff-package-name">420 Diamonds</div>
+            <div class="ff-package-price-group">
+                <div class="ff-package-price">Rp 52.290</div>
+            </div>
+        </div>
+        <div class="ff-package-card">
+            <div class="ff-package-image">
+                <img src="../iconpay/ff-diamond-3.png">
+            </div>
+            <div class="ff-package-name">500 Diamonds</div>
+            <div class="ff-package-price">Rp 61.870</div>
+        </div>
+        <div class="ff-package-card">
+            <div class="ff-package-image">
+                <img src="../iconpay/ff-diamond-3.png">
+            </div>
+            <div class="ff-package-name">565 Diamonds</div>
+            <div class="ff-package-price">Rp 69.710</div>
+        </div>
+        <div class="ff-package-card">
+            <div class="ff-package-image">
+                <img src="../iconpay/ff-diamond-3.png">
+            </div>
+            <div class="ff-package-name">635 Diamonds</div>
+            <div class="ff-package-price">Rp 78.430</div>
+        </div>
+        <div class="ff-package-card">
+            <div class="ff-package-image">
+                <img src="../iconpay/ff-diamond-3.png">
+            </div>
+            <div class="ff-package-name">720 Diamonds</div>
+            <div class="ff-package-price">Rp 87.700</div>
+        </div>
+        <div class="ff-package-card">
+            <div class="ff-package-image">
+                <img src="../iconpay/ff-diamond-3.png">
+            </div>
+            <div class="ff-package-name">860 Diamonds</div>
+            <div class="ff-package-price">Rp 97.600</div>
+        </div>
+        <div class="ff-package-card">
+            <div class="ff-package-image">
+                <img src="../iconpay/ff-diamond-3.png">
+            </div>
+            <div class="ff-package-name">930 Diamonds</div>
+            <div class="ff-package-price">Rp 113.280</div>
+        </div>
+        <div class="ff-package-card">
+            <div class="ff-package-image">
+                <img src="../iconpay/ff-diamond-4.png">
+            </div>
+            <div class="ff-package-name">1000 Diamonds</div>
+            <div class="ff-package-price">Rp 122.000</div>
+        </div>
+        <div class="ff-package-card">
+            <div class="ff-package-image">
+                <img src="../iconpay/ff-diamond-4.png">
+            </div>
+            <div class="ff-package-name">1450 Diamonds</div>
+            <div class="ff-package-price">Rp 176.200</div>
+        </div>
+        <div class="ff-package-card">
+            <div class="ff-package-image">
+                <img src="../iconpay/ff-diamond-5.png">
+            </div>
+            <div class="ff-package-name">2180 Diamonds</div>
+            <div class="ff-package-price">Rp 264.900</div>
+        </div>
+        <div class="ff-package-card">
+            <div class="ff-package-image">
+                <img src="../iconpay/ff-diamond-5.png">
+            </div>
+            <div class="ff-package-name">2200 Diamonds</div>
+            <div class="ff-package-price">Rp 263.280</div>
+        </div>
+        <div class="ff-package-card">
+            <div class="ff-package-image">
+                <img src="../iconpay/ff-diamond-5.png">
+            </div>
+            <div class="ff-package-name">3640 Diamonds</div>
+            <div class="ff-package-price">Rp 442.620</div>
+        </div>
+    </div>
+
+    <!--nama game-->
+    <div class="game-price-box">
+        <div class="game-title">PUBG</div>
+        <div id="pubg-price-list" class="game-price-list">
+        </div>
+    </div>
+
+    <!--item dan harga-->
+    <div id="pubg-original-list" style="display: none;">
+        <div class="pubg-package-card">
+            <div class="pubg-package-badge">TERPOPULER</div>
+            <div class="pubg-package-image">
+                <img src="../iconpay/pubg-uc-2.png">
+            </div>
+            <div class="pubg-package-name">325 UC</div>
+            <div class="pubg-package-price">Rp 82.500</div>
+        </div>
+        <div class="pubg-package-card">
+            <div class="pubg-package-image">
+                <img src="../iconpay/pubg-uc-3.png">
+            </div>
+            <div class="pubg-package-name">660 UC</div>
+            <div class="pubg-package-price">Rp 165.000</div>
+        </div>
+        <div class="pubg-package-card">
+            <div class="pubg-package-badge">TERPOPULER</div>
+            <div class="pubg-package-image">
+                <img src="../iconpay/pubg-uc-4.png">
+            </div>
+            <div class="pubg-package-name">1800 UC</div>
+            <div class="pubg-package-price">Rp 412.500</div>
+        </div>
+        <div class="pubg-package-card">
+            <div class="pubg-package-image">
+                <img src="../iconpay/pubg-uc-5.png">
+            </div>
+            <div class="pubg-package-name">3850 UC</div>
+            <div class="pubg-package-price">Rp 825.000</div>
+        </div>
+        <div class="pubg-package-card">
+            <div class="pubg-package-image">
+                <img src="../iconpay/pubg-uc-6.png">
+            </div>
+            <div class="pubg-package-name">8100 UC</div>
+            <div class="pubg-package-price">Rp 1.650.000</div>
+        </div>
+    </div>
+
+    <!--nama game-->
+    <div class="game-price-box">
+        <div class="game-title">Mobile Legends</div>
+        <div id="ml-price-list" class="game-price-list">
+        </div>
+    </div>
+
+    <!--item dan harga-->
+    <div id="ml-original-list" style="display: none;">
+        <div class="ml-package-card">
+            <div class="ml-package-badge">TERPOPULER</div>
+            <div class="ml-package-image">
+                <img src="../iconpay/moba-diamond.png">
+            </div>
+            <div class="ml-package-name">5 Diamonds</div>
+            <div class="ml-package-price">Rp 1.423</div>
+        </div>
+        <div class="ml-package-card">
+            <div class="ml-package-image">
+                <img src="../iconpay/moba-diamond.png">
+            </div>
+            <div class="ml-package-name">12 Diamonds</div>
+            <div class="ml-package-name-bonus">(12 + 1 Bonus)</div>
+            <div class="ml-package-price">Rp 3.232</div>
+        </div>
+        <div class="ml-package-card">
+            <div class="ml-package-image">
+                <img src="../iconpay/moba-diamond.png">
+            </div>
+            <div class="ml-package-name">19 Diamonds</div>
+            <div class="ml-package-name-bonus">(17 + 2 Bonus)</div>
+            <div class="ml-package-price">Rp 5.223</div>
+        </div>
+        <div class="ml-package-card">
+            <div class="ml-package-image">
+                <img src="../iconpay/moba-diamond.png">
+            </div>
+            <div class="ml-package-name">44 Diamonds</div>
+            <div class="ml-package-name-bonus">(40 + 4 Bonus)</div>
+            <div class="ml-package-price">Rp 11.400</div>
+        </div>
+        <div class="ml-package-card">
+            <div class="ml-package-image">
+                <img src="../iconpay/moba-diamond-1.png">
+            </div>
+            <div class="ml-package-name">59 Diamonds</div>
+            <div class="ml-package-name-bonus">(53 + 6 Bonus)</div>
+            <div class="ml-package-price">Rp 16.200</div>
+        </div>
+        <div class="ml-package-card">
+            <div class="ml-discount-label">-32%</div>
+            <div class="ml-package-image">
+                <img src="../iconpay/moba-diamond-1.png">
+            </div>
+            <div class="ml-package-name">85 Diamonds</div>
+            <div class="ml-package-name-bonus">(77 + 8 Bonus)</div>
+            <div class="ml-package-price-original">Rp 34.680</div>
+            <div class="ml-package-price">Rp 21.850</div>
+        </div>
+        <div class="ml-package-card">
+            <div class="ml-package-image">
+                <img src="../iconpay/moba-diamond-2.png">
+            </div>
+            <div class="ml-package-name">170 Diamonds</div>
+            <div class="ml-package-name-bonus">(154 + 16 Bonus)</div>
+            <div class="ml-package-price">Rp 43.700</div>
+        </div>
+        <div class="ml-package-card">
+            <div class="ml-package-image">
+                <img src="../iconpay/moba-diamond-2.png">
+            </div>
+            <div class="ml-package-name">240 Diamonds</div>
+            <div class="ml-package-name-bonus">(217 + 23 Bonus)</div>
+            <div class="ml-package-price">Rp 61.750</div>
+        </div>
+        <div class="ml-package-card">
+            <div class="ml-package-image">
+                <img src="../iconpay/moba-diamond-2.png">
+            </div>
+            <div class="ml-package-name">296 Diamonds</div>
+            <div class="ml-package-name-bonus">(256 + 40 Bonus)</div>
+            <div class="ml-package-price">Rp 76.000</div>
+        </div>
+        <div class="ml-package-card">
+            <div class="ml-package-image">
+                <img src="../iconpay/moba-diamond-2.png">
+            </div>
+            <div class="ml-package-name">408 Diamonds</div>
+            <div class="ml-package-name-bonus">(367 + 41 Bonus)</div>
+            <div class="ml-package-price">Rp 104.500</div>
+        </div>
+        <div class="ml-package-card">
+            <div class="ml-package-image">
+                <img src="../iconpay/moba-diamond-3.png">
+            </div>
+            <div class="ml-package-name">568 Diamonds</div>
+            <div class="ml-package-name-bonus">(503 + 65 Bonus)</div>
+            <div class="ml-package-price">Rp 142.500</div>
+        </div>
+        <div class="ml-package-card">
+            <div class="ml-package-image">
+                <img src="../iconpay/moba-diamond-3.png">
+            </div>
+            <div class="ml-package-name">875 Diamonds</div>
+            <div class="ml-package-name-bonus">(774 + 101 Bonus)</div>
+            <div class="ml-package-price">Rp 218.500</div>
+        </div>
+        <div class="ml-package-card">
+            <div class="ml-package-image">
+                <img src="../iconpay/moba-diamond-4.png">
+            </div>
+            <div class="ml-package-name">2010 Diamonds</div>
+            <div class="ml-package-name-bonus">(1708 + 302 Bonus)</div>
+            <div class="ml-package-price">Rp 475.000</div>
+        </div>
+        <div class="ml-package-card">
+            <div class="ml-package-image">
+                <img src="../iconpay/moba-diamond-5.png">
+            </div>
+            <div class="ml-package-name">4830 Diamonds</div>
+            <div class="ml-package-name-bonus">(4003 + 827 Bonus)</div>
+            <div class="ml-package-price">Rp 1.140.000</div>
+        </div>
+    </div>
+
+    <!--nama game-->
+    <div class="game-price-box">
+        <div class="game-title">Call Of Duty: Mobile</div>
+        <div id="codm-price-list" class="game-price-list">
+        </div>
+    </div>
+
+    <!--item dan harga-->
+    <div id="codm-original-list" style="display: none;">
+        <div class="codm-package-card">
+            <div class="codm-package-badge">TERPOPULER</div>
+            <div class="codm-package-image">
+                <img src="../iconpay/codm-cp.png">
+            </div>
+            <div class="codm-package-name">63 CP</div>
+            <div class="codm-package-price">Rp 9.397</div>
+        </div>
+        <div class="codm-package-card">
+            <div class="codm-package-image">
+                <img src="../iconpay/codm-cp.png">
+            </div>
+            <div class="codm-package-name">128 CP</div>
+            <div class="codm-package-price">Rp 18.670</div>
+        </div>
+        <div class="codm-package-card">
+            <div class="codm-package-badge">TERPOPULER</div>
+            <div class="codm-package-image">
+                <img src="../iconpay/codm-cp.png">
+            </div>
+            <div class="codm-package-name">321 CP</div>
+            <div class="codm-package-price">Rp 45.099</div>
+        </div>
+        <div class="codm-package-card">
+            <div class="codm-package-image">
+                <img src="../iconpay/codm-cp.png">
+            </div>
+            <div class="codm-package-name">645 CP</div>
+            <div class="codm-package-price">Rp 90.800</div>
+        </div>
+        <div class="codm-package-card">
+            <div class="codm-package-image">
+                <img src="../iconpay/codm-cp.png">
+            </div>
+            <div class="codm-package-name">800 CP</div>
+            <div class="codm-package-price">Rp 108.150</div>
+        </div>
+        <div class="codm-package-card">
+            <div class="codm-discount-label">-32%</div>
+            <div class="codm-package-image">
+                <img src="../iconpay/codm-cp.png">
+            </div>
+            <div class="codm-package-name">1373 CP</div>
+            <div class="codm-package-price-original">Rp 180.280</div>
+            <div class="codm-package-price">Rp 152.631</div>
+        </div>
+        <div class="codm-package-card">
+            <div class="codm-package-image">
+                <img src="../iconpay/codm-cp.png">
+            </div>
+            <div class="codm-package-name">2060 CP</div>
+            <div class="codm-package-price-group">
+                <div class="codm-package-price">Rp 270.290</div>
+            </div>
+        </div>
+        <div class="codm-package-card">
+            <div class="codm-package-image">
+                <img src="../iconpay/codm-cp.png">
+            </div>
+            <div class="codm-package-name">2750 CP</div>
+            <div class="codm-package-price">Rp 342.340</div>
+        </div>
+        <div class="codm-package-card">
+            <div class="codm-package-image">
+                <img src="../iconpay/codm-cp.png">
+            </div>
+            <div class="codm-package-name">3564 CP</div>
+            <div class="codm-package-price">Rp 450.510</div>
+        </div>
+        <div class="codm-package-card">
+            <div class="codm-package-image">
+                <img src="../iconpay/codm-cp.png">
+            </div>
+            <div class="codm-package-name">5619 CP</div>
+            <div class="codm-package-price">Rp 657.430</div>
+        </div>
+        <div class="codm-package-card">
+            <div class="codm-package-image">
+                <img src="../iconpay/codm-cp.png">
+            </div>
+            <div class="codm-package-name">7656 CP</div>
+            <div class="codm-package-price">Rp 900.900</div>
+        </div>
+        <div class="codm-package-card">
+            <div class="codm-package-image">
+                <img src="../iconpay/codm-cp.png">
+            </div>
+            <div class="codm-package-name">15312 CP</div>
+            <div class="codm-package-price">Rp 1.801.999</div>
+        </div>
+        <div class="codm-package-card">
+            <div class="codm-package-image">
+                <img src="../iconpay/codm-cp.png">
+            </div>
+            <div class="codm-package-name">38280 CP</div>
+            <div class="codm-package-price">Rp 4.503.280</div>
+        </div>
+        <div class="codm-package-card">
+            <div class="codm-package-image">
+                <img src="../iconpay/codm-cp.png">
+            </div>
+            <div class="codm-package-name">76560 CP</div>
+            <div class="codm-package-price">Rp 9.009.900</div>
+        </div>
+    </div>
+
+    <!--nama game-->
+    <div class="game-price-box">
+        <div class="game-title">Zenless Zone Zero</div>
+        <div id="zzz-price-list" class="game-price-list">
+        </div>
+    </div>
+
+    <!--item dan harga-->
+    <div id="zzz-original-list" style="display: none;">
+        <div class="zzz-package-card">
+            <div class="zzz-package-image">
+                <img src="../iconpay/zzz-mono-2.png">
+            </div>
+            <div class="zzz-package-name">330 Monochrome</div>
+            <div class="zzz-package-name-bonus">(300 + 30 Bonus)</div>
+            <div class="zzz-package-price">Rp 71.171</div>
+        </div>
+        <div class="zzz-package-card">
+            <div class="zzz-package-badge">TERPOPULER</div>
+            <div class="zzz-package-image">
+                <img src="../iconpay/zzz-mono-3.png">
+            </div>
+            <div class="zzz-package-name">1090 Monochrome</div>
+            <div class="zzz-package-name-bonus">(980 + 110 Bonus)</div>
+            <div class="zzz-package-price">Rp 224.324</div>
+        </div>
+        <div class="zzz-package-card">
+            <div class="zzz-package-image">
+                <img src="../iconpay/zzz-mono-4.png">
+            </div>
+            <div class="zzz-package-name">2240 Monochrome</div>
+            <div class="zzz-package-name-bonus">(1980 + 260 Bonus)</div>
+            <div class="zzz-package-price">Rp 431.532</div>
+        </div>
+        <div class="zzz-package-card">
+            <div class="zzz-package-badge">TERPOPULER</div>
+            <div class="zzz-package-image">
+                <img src="../iconpay/zzz-mono-5.png">
+            </div>
+            <div class="zzz-package-name">3880 Monochrome</div>
+            <div class="zzz-package-name-bonus">(3280 + 600 Bonus)</div>
+            <div class="zzz-package-price">Rp 719.820</div>
+        </div>
+        <div class="zzz-package-card">
+            <div class="zzz-package-image">
+                <img src="../iconpay/zzz-mono-6.png">
+            </div>
+            <div class="zzz-package-name">8080 Monochrome</div>
+            <div class="zzz-package-name-bonus">(6480 + 1600 Bonus)</div>
+            <div class="zzz-package-price">Rp 1.440.820</div>
+        </div>
+    </div>
+
+    <!--nama game-->
+    <div class="game-price-box">
+        <div class="game-title">Genshin Impact</div>
+        <div id="genshin-price-list" class="game-price-list">
+        </div>
+    </div>
+
+    <!--item dan harga-->
+    <div id="genshin-original-list" style="display: none;">
+        <div class="genshin-package-card">
+            <div class="genshin-package-image">
+                <img src="../iconpay/genshin-crystal-2.png">
+            </div>
+            <div class="genshin-package-name">330 Genesis Crystals</div>
+            <div class="genshin-package-name-bonus">(300 + 30 Bonus)</div>
+            <div class="genshin-package-price">Rp 71.171</div>
+        </div>
+        <div class="genshin-package-card">
+            <div class="genshin-package-badge">TERPOPULER</div>
+            <div class="genshin-package-image">
+                <img src="../iconpay/genshin-crystal-3.png">
+            </div>
+            <div class="genshin-package-name">1090 Genesis Crystals</div>
+            <div class="genshin-package-name-bonus">(980 + 110 Bonus)</div>
+            <div class="genshin-package-price">Rp 228.324</div>
+        </div>
+        <div class="genshin-package-card">
+            <div class="genshin-package-image">
+                <img src="../iconpay/genshin-crystal-4.png">
+            </div>
+            <div class="genshin-package-name">2240 Genesis Crystals</div>
+            <div class="genshin-package-name-bonus">(1980 + 260 Bonus)</div>
+            <div class="genshin-package-price">Rp 441.532</div>
+        </div>
+        <div class="genshin-package-card">
+            <div class="genshin-package-badge">TERPOPULER</div>
+            <div class="genshin-package-image">
+                <img src="../iconpay/genshin-crystal-5.png">
+            </div>
+            <div class="genshin-package-name">3880 Genesis Crystals</div>
+            <div class="genshin-package-name-bonus">(3280 + 600 Bonus)</div>
+            <div class="genshin-package-price">Rp 734.820</div>
+        </div>
+        <div class="genshin-package-card">
+            <div class="genshin-package-image">
+                <img src="../iconpay/genshin-crystal-6.png">
+            </div>
+            <div class="genshin-package-name">8080 Genesis Crystals</div>
+            <div class="genshin-package-name-bonus">(6480 + 1600 Bonus)</div>
+            <div class="genshin-package-price">Rp 1.460.820</div>
+        </div>
+        <div class="genshin-package-card">
+            <div class="genshin-package-image">
+                <img src="../iconpay/genshin-blessing.png">
+            </div>
+            <div class="genshin-package-name">Blessing of the Welkin Moon</div>
+            <div class="genshin-package-price">Rp 72.973</div>
+        </div>
+    </div>
+
+    <!--nama game-->
+    <div class="game-price-box">
+        <div class="game-title">Wuthering Waves</div>
+        <div id="wuwa-price-list" class="game-price-list">
+        </div>
+    </div>
+
+    <!--item dan harga-->
+    <div id="wuwa-original-list" style="display: none;">
+        <div class="wuwa-package-card">
+            <div class="wuwa-package-badge">TERPOPULER</div>
+            <div class="wuwa-package-image">
+                <img src="../iconpay/wuwa-lunite-2.png">
+            </div>
+            <div class="wuwa-package-name">300 Lunite</div>
+            <div class="wuwa-package-price">Rp 71.451</div>
+        </div>
+        <div class="wuwa-package-card">
+            <div class="wuwa-package-badge">TERPOPULER</div>
+            <div class="wuwa-package-image">
+                <img src="../iconpay/wuwa-lunite-3.png">
+            </div>
+            <div class="wuwa-package-name">980 Lunite</div>
+            <div class="wuwa-package-price">Rp 222.924</div>
+        </div>
+        <div class="wuwa-package-card">
+            <div class="wuwa-package-image">
+                <img src="../iconpay/wuwa-lunite-4.png">
+            </div>
+            <div class="wuwa-package-name">1980 Lunite</div>
+            <div class="wuwa-package-price">Rp 435.100</div>
+        </div>
+        <div class="wuwa-package-card">
+            <div class="wuwa-package-image">
+                <img src="../iconpay/wuwa-lunite-5.png">
+            </div>
+            <div class="wuwa-package-name">3280 Lunite</div>
+            <div class="wuwa-package-price">Rp 720.000</div>
+        </div>
+        <div class="wuwa-package-card">
+            <div class="wuwa-package-image">
+                <img src="../iconpay/wuwa-lunite-6.png">
+            </div>
+            <div class="wuwa-package-name">6480 Lunite</div>
+            <div class="wuwa-package-price">Rp 1.440.450</div>
+        </div>
+    </div>
+
+    <!--nama game-->
+    <div class="game-price-box">
+        <div class="game-title">Honkai Star Rail</div>
+        <div id="hsr-price-list" class="game-price-list">
+        </div>
+    </div>
+
+    <!--item dan harga-->
+    <div id="hsr-original-list" style="display: none;">
+        <div class="hsr-package-card">
+            <div class="hsr-package-image">
+                <img src="../iconpay/hsr-shard-2.png">
+            </div>
+            <div class="hsr-package-name">330 Oneiric Shard</div>
+            <div class="hsr-package-name-bonus">(300 + 30 Bonus)</div>
+            <div class="hsr-package-price">Rp 71.171</div>
+        </div>
+        <div class="hsr-package-card">
+            <div class="hsr-package-badge">TERPOPULER</div>
+            <div class="hsr-package-image">
+                <img src="../iconpay/hsr-shard-3.png">
+            </div>
+            <div class="hsr-package-name">1090 Oneiric Shard</div>
+            <div class="hsr-package-name-bonus">(980 + 110 Bonus)</div>
+            <div class="hsr-package-price">Rp 224.324</div>
+        </div>
+        <div class="hsr-package-card">
+            <div class="hsr-package-image">
+                <img src="../iconpay/hsr-shard-4.png">
+            </div>
+            <div class="hsr-package-name">2240 Oneiric Shard</div>
+            <div class="hsr-package-name-bonus">(1980 + 260 Bonus)</div>
+            <div class="hsr-package-price">Rp 431.532</div>
+        </div>
+        <div class="hsr-package-card">
+            <div class="hsr-package-badge">TERPOPULER</div>
+            <div class="hsr-package-image">
+                <img src="../iconpay/hsr-shard-5.png">
+            </div>
+            <div class="hsr-package-name">3880 Oneiric Shard</div>
+            <div class="hsr-package-name-bonus">(3280 + 600 Bonus)</div>
+            <div class="hsr-package-price">Rp 719.820</div>
+        </div>
+        <div class="hsr-package-card">
+            <div class="hsr-package-image">
+                <img src="../iconpay/hsr-shard-6.png">
+            </div>
+            <div class="hsr-package-name">8080 Oneiric Shard</div>
+            <div class="hsr-package-name-bonus">(6480 + 1600 Bonus)</div>
+            <div class="hsr-package-price">Rp 1.440.820</div>
+        </div>
+        <div class="hsr-package-card">
+            <div class="hsr-package-image">
+                <img src="../iconpay/hsr-express.png">
+            </div>
+            <div class="hsr-package-name">Express Supply Pass</div>
+            <div class="hsr-package-name-bonus">(6480 + 1600 Bonus)</div>
+            <div class="hsr-package-price">Rp 71.200</div>
+        </div>
+    </div>
+
+    <!--nama game-->
+    <div class="game-price-box">
+        <div class="game-title">Roblox</div>
+        <div id="roblox-price-list" class="game-price-list">
+        </div>
+    </div>
+
+    <!--item dan harga-->
+    <div id="roblox-original-list" style="display: none;">
+        <div class="roblox-package-card">
+            <div class="roblox-package-image">
+                <img src="../iconpay/roblox-robux.png">
+            </div>
+            <div class="roblox-package-name">400 Robux</div>
+            <div class="roblox-package-price">Rp 80.000</div>
+        </div>
+        <div class="roblox-package-card">
+            <div class="roblox-package-badge">TERPOPULER</div>
+            <div class="roblox-package-image">
+                <img src="../iconpay/roblox-robux.png">
+            </div>
+            <div class="roblox-package-name">800 Robux</div>
+            <div class="roblox-package-price">Rp 150.000</div>
+        </div>
+        <div class="roblox-package-card">
+            <div class="roblox-package-image">
+                <img src="../iconpay/roblox-robux.png">
+            </div>
+            <div class="roblox-package-name">1600 Robux</div>
+            <div class="roblox-package-price">Rp 298.000</div>
+        </div>
+        <div class="roblox-package-card">
+            <div class="roblox-package-badge">TERPOPULER</div>
+            <div class="roblox-package-image">
+                <img src="../iconpay/roblox-robux.png">
+            </div>
+            <div class="roblox-package-name">4400 Robux</div>
+            <div class="roblox-package-price">Rp 720.000</div>
+        </div>
+    </div>
+
+    <!--nama game-->
+    <div class="game-price-box">
+        <div class="game-title">Honkai Impact 3rd</div>
+        <div id="hi-price-list" class="game-price-list">
+        </div>
+    </div>
+
+    <!--item dan harga-->
+    <div id="hi-original-list" style="display: none;">
+        <div class="hi-package-card">
+            <div class="hi-package-image">
+                <img src="../iconpay/hi-chips.png">
+            </div>
+            <div class="hi-package-name">65 B-Chips</div>
+            <div class="hi-package-price">Rp 16.868</div>
+        </div>
+        <div class="hi-package-card">
+            <div class="hi-package-badge">TERPOPULER</div>
+            <div class="hi-package-image">
+                <img src="../iconpay/hi-chips.png">
+            </div>
+            <div class="hi-package-name">330 B-Chips</div>
+            <div class="hi-package-price">Rp 72.000</div>
+        </div>
+        <div class="hi-package-card">
+            <div class="hi-package-image">
+                <img src="../iconpay/hi-chips.png">
+            </div>
+            <div class="hi-package-name">990 B-Chips</div>
+            <div class="hi-package-price">Rp 229.750</div>
+        </div>
+        <div class="hi-package-card">
+            <div class="hi-package-badge">TERPOPULER</div>
+            <div class="hi-package-image">
+                <img src="../iconpay/hi-chips.png">
+            </div>
+            <div class="hi-package-name">1320 B-Chips</div>
+            <div class="hi-package-price">Rp 302.000</div>
+        </div>
+        <div class="hi-package-card">
+            <div class="hi-package-image">
+                <img src="../iconpay/hi-chips.png">
+            </div>
+            <div class="hi-package-name">1980 B-Chips</div>
+            <div class="hi-package-price">Rp 440.500</div>
+        </div>
+        <div class="hi-package-card">
+            <div class="hi-package-image">
+                <img src="../iconpay/hi-chips.png">
+            </div>
+            <div class="hi-package-name">3300 B-Chips</div>
+            <div class="hi-package-price">Rp 734.896</div>
+        </div>
+        <div class="hi-package-card">
+            <div class="hi-package-image">
+                <img src="../iconpay/hi-chips.png">
+            </div>
+            <div class="hi-package-name">6600 B-Chips</div>
+            <div class="hi-package-price">Rp 1.465.500</div>
+        </div>
+    </div>
+    </div>
+    <script>
+        function generatePriceList(gameId, nameClass, priceClass, outputId) {
+            const names = document.querySelectorAll(`#${gameId} .${nameClass}`);
+            const prices = document.querySelectorAll(`#${gameId} .${priceClass}`);
+            const output = document.getElementById(outputId);
+
+            for (let i = 0; i < names.length; i++) {
+                const row = document.createElement('div');
+                row.className = 'price-row';
+
+                const left = document.createElement('div');
+                left.className = 'price-left';
+                left.textContent = prices[i].textContent;
+
+                const right = document.createElement('div');
+                right.className = 'price-right';
+                right.textContent = names[i].textContent;
+
+                row.appendChild(left);
+                row.appendChild(right);
+                output.appendChild(row);
+            }
+        }
+
+        generatePriceList('ff-original-list', 'ff-package-name', 'ff-package-price', 'ff-price-list');
+        generatePriceList('pubg-original-list', 'pubg-package-name', 'pubg-package-price', 'pubg-price-list');
+        generatePriceList('ml-original-list', 'ml-package-name', 'ml-package-price', 'ml-price-list');
+        generatePriceList('zzz-original-list', 'zzz-package-name', 'zzz-package-price', 'zzz-price-list');
+        generatePriceList('hok-original-list', 'hok-package-name', 'hok-package-price', 'hok-price-list');
+        generatePriceList('hsr-original-list', 'hsr-package-name', 'hsr-package-price', 'hsr-price-list');
+        generatePriceList('hi-original-list', 'hi-package-name', 'hi-package-price', 'hi-price-list');
+        generatePriceList('roblox-original-list', 'roblox-package-name', 'roblox-package-price', 'roblox-price-list');
+        generatePriceList('valo-original-list', 'valo-package-name', 'valo-package-price', 'valo-price-list');
+        generatePriceList('codm-original-list', 'codm-package-name', 'codm-package-price', 'codm-price-list');
+        generatePriceList('wuwa-original-list', 'wuwa-package-name', 'wuwa-package-price', 'wuwa-price-list');
+        generatePriceList('genshin-original-list', 'genshin-package-name', 'genshin-package-price', 'genshin-price-list');
+    </script>
+
+
+    <!--Footer-->
+    <footer class="site-footer">
+        <div class="footer-main">
+            <div class="footer-right">
+                <img src="../bg/logo-desk.png" alt="Logo" class="footer-logo" />
+                <p class="footer-description">
+                    Website topup terpercaya untuk berbagai game populer. Proses cepat, aman, dan terpercaya.
+                </p>
+            </div>
+
+            <div class="footer-left">
+                <div class="footer-section">
+                    <h4>Peta Situs</h4>
+                    <ul>
+                        <li><a href="../html/index.html">Beranda</a></li>
+                        <li><a href="../html/register.html">Daftar</a></li>
+                        <li><a href="../html/login.html">Masuk</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Hubungi Kami</h4>
+                    <ul>
+                        <li><a href="mailto:samudrabisma6@gmail.com" target="_blank">Email</a></li>
+                        <li><a href="https://wa.me/6283144079145" target="_blank">WhatsApp</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Informasi</h4>
+                    <ul>
+                        <li><a href="../html/terms.html">Syarat & Ketentuan</a></li>
+                        <li><a href="../html/policy.html">Kebijakan Privasi</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p>© 2025 Dream Store. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
