@@ -97,7 +97,7 @@ function setupLogin() {
         }
 
         setTimeout(() => {
-            window.location.href = 'index.html';
+            window.location.href = '/website-topup/index.html';
         }, 1500);
     });
 }
@@ -105,7 +105,7 @@ function setupLogin() {
 function checkLoggedIn() {
     const savedUser = localStorage.getItem(LOGGED_IN_KEY) || sessionStorage.getItem(LOGGED_IN_KEY);
     if (savedUser) {
-        window.location.href = 'index.html';
+        window.location.href = '/website-topup/index.html';
     }
 }
 
