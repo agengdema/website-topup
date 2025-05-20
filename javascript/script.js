@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const games = [
     { name: "Mobile Legends", keywords: ["mobile legends", "ml"], icon: "icon/mole-icon.png", link: "html/moba-payment.html" },
-    { name: "Free Fire", keywords: ["free fire", "ff"], icon: "icon/ff-icon.png", link: "html/ff-payment.html" },
+    { name: "Free Fire", keywords: ["free fire", "ff"], icon: "/website-topup/icon/ff-icon.png", link: "/website-topup/html/ff-payment.html" },
     { name: "Free Fire Max", keywords: ["free fire max"], icon: "icon/ffmax-icon.png", link: "html/ffmax-payment.html" },
     { name: "PUBG Mobile", keywords: ["pubg mobile", "pubg"], icon: "icon/pubg-icon.png", link: "html/pubg-payment.html" },
     { name: "Honkai: Star Rail", keywords: ["honkai star rail", "hsr"], icon: "icon/hsr-icon.png", link: "html/hsr-payment.html" },
