@@ -5,23 +5,23 @@ document.addEventListener("DOMContentLoaded", function () {
   const suggestionsBox = document.getElementById("suggestions");
 
   const games = [
-    { name: "Mobile Legends", keywords: ["mobile legends", "ml"], icon: "icon/mole-icon.png", link: "html/moba-payment.html" },
+    { name: "Mobile Legends", keywords: ["mobile legends", "ml"], icon: "/website-topup/icon/mole-icon.png", link: "/website-topup/html/moba-payment.html" },
     { name: "Free Fire", keywords: ["free fire", "ff"], icon: "/website-topup/icon/ff-icon.png", link: "/website-topup/html/ff-payment.html" },
-    { name: "Free Fire Max", keywords: ["free fire max"], icon: "icon/ffmax-icon.png", link: "html/ffmax-payment.html" },
-    { name: "PUBG Mobile", keywords: ["pubg mobile", "pubg"], icon: "icon/pubg-icon.png", link: "html/pubg-payment.html" },
-    { name: "Honkai: Star Rail", keywords: ["honkai star rail", "hsr"], icon: "icon/hsr-icon.png", link: "html/hsr-payment.html" },
-    { name: "Wuthering Waves", keywords: ["wuthering waves", "wuwa"], icon: "icon/wuwa-icon.png", link: "html/wuwa-payment.html" },
-    { name: "Zenless Zone Zero", keywords: ["zenless zone zero", "zzz"], icon: "icon/zzz-icon.png", link: "html/zzz-payment.html" },
-    { name: "Valorant", keywords: ["valorant"], icon: "icon/valo-icon.png", link: "html/valo-payment.html" },
-    { name: "Call of Duty: Mobile", keywords: ["codm", "call of duty"], icon: "icon/codm-icon.png", link: "html/codm-payment.html" },
-    { name: "Genshin Impact", keywords: ["genshin impact", "genshin"], icon: "icon/genshin-icon.png", link: "html/genshin-payment.html" },
-    { name: "Honkai Impact 3rd", keywords: ["honkai impact 3rd", "hi3rd"], icon: "icon/hi-icon.png", link: "html/hi-payment.html" },
-    { name: "Roblox", keywords: ["Roblox", "rblx"], icon: "icon/roblox-icon.png", link: "html/roblox-payment.html" },
-    { name: "Magic Chess: Go Go", keywords: ["Magic Chess", "mc"], icon: "icon/mc-icon.png", link: "html/mc-payment.html" },
-    { name: "Delta Force", keywords: ["Delta Force", "df"], icon: "icon/delta-icon.png", link: "html/delta-payment.html" },
-    { name: "Blood Strike", keywords: ["Blood Strike", "bs"], icon: "icon/bs-icon.png", link: "html/bs-payment.html" },
-    { name: "League Of Legends: Wild Rift", keywords: ["League Of Legends", "lol"], icon: "icon/lol-icon.png", link: "html/lol-payment.html" },
-    { name: "Honor of King", keywords: ["honor of king", "hok"], icon: "icon/hok-icon.png", link: "html/hok-payment.html" }
+    { name: "Free Fire Max", keywords: ["free fire max"], icon: "/website-topup/icon/ffmax-icon.png", link: "/website-topup/html/ffmax-payment.html" },
+    { name: "PUBG Mobile", keywords: ["pubg mobile", "pubg"], icon: "/website-topup/icon/pubg-icon.png", link: "/website-topup/html/pubg-payment.html" },
+    { name: "Honkai: Star Rail", keywords: ["honkai star rail", "hsr"], icon: "/website-topup/icon/hsr-icon.png", link: "/website-topup/html/hsr-payment.html" },
+    { name: "Wuthering Waves", keywords: ["wuthering waves", "wuwa"], icon: "/website-topup/icon/wuwa-icon.png", link: "/website-topup/html/wuwa-payment.html" },
+    { name: "Zenless Zone Zero", keywords: ["zenless zone zero", "zzz"], icon: "/website-topup/icon/zzz-icon.png", link: "/website-topup/html/zzz-payment.html" },
+    { name: "Valorant", keywords: ["valorant"], icon: "/website-topup/icon/valo-icon.png", link: "/website-topup/html/valo-payment.html" },
+    { name: "Call of Duty: Mobile", keywords: ["codm", "call of duty"], icon: "/website-topup/icon/codm-icon.png", link: "/website-topup/html/codm-payment.html" },
+    { name: "Genshin Impact", keywords: ["genshin impact", "genshin"], icon: "/website-topup/icon/genshin-icon.png", link: "/website-topup/html/genshin-payment.html" },
+    { name: "Honkai Impact 3rd", keywords: ["honkai impact 3rd", "hi3rd"], icon: "/website-topup/icon/hi-icon.png", link: "/website-topup/html/hi-payment.html" },
+    { name: "Roblox", keywords: ["Roblox", "rblx"], icon: "/website-topup/icon/roblox-icon.png", link: "/website-topup/html/roblox-payment.html" },
+    { name: "Magic Chess: Go Go", keywords: ["Magic Chess", "mc"], icon: "/website-topup/icon/mc-icon.png", link: "/website-topup/html/mc-payment.html" },
+    { name: "Delta Force", keywords: ["Delta Force", "df"], icon: "/website-topup/icon/delta-icon.png", link: "/website-topup/html/delta-payment.html" },
+    { name: "Blood Strike", keywords: ["Blood Strike", "bs"], icon: "/website-topup/icon/bs-icon.png", link: "/website-topup/html/bs-payment.html" },
+    { name: "League Of Legends: Wild Rift", keywords: ["League Of Legends", "lol"], icon: "/website-topup/icon/lol-icon.png", link: "/website-topup/html/lol-payment.html" },
+    { name: "Honor of King", keywords: ["honor of king", "hok"], icon: "/website-topup/icon/hok-icon.png", link: "/website-topup/html/hok-payment.html" }
   ];
 
   if (showMoreBtn && hiddenContainer) {
