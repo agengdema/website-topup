@@ -13,15 +13,15 @@ Proyek ini merupakan website layanan topup atau e-commerce untuk berbagai game o
 
 ## 📁 Struktur Folder
 
-/bg - File gambar background, icon, favicon
-/css - Berisi file stylesheet untuk mengatur dan mempercantik tampilan website
-/html - Halaman HTML untuk setiap konten
-/icon - File icon game
-/iconpay - File gambar diamond, koin, dan mata game lainnya
-/javacript - Berisi file JavaScript untuk membuat interaksi dinamis
-/payment - File gambar icon pembayaran (Dana, Gopay, dll.)
-index.html → Halaman depan
+/bg - File gambar background, icon, favicon  
+/css - Berisi file stylesheet untuk mengatur dan mempercantik tampilan website  
+/html - Halaman HTML untuk setiap konten  
+/icon - File icon game  
+/iconpay - File gambar diamond, koin, dan mata game lainnya  
+/javacript - Berisi file JavaScript untuk membuat interaksi dinamis  
+/payment - File gambar icon pembayaran (Dana, Gopay, dll.)  
+index.html → Halaman depan  
 
-## Catatan
+## 📝 Catatan
 - Proyek ini adalah simulasi untuk pembelajaran
 - Jangan isi dengan data asli ketika memasukkan data pada halaman form daftar
