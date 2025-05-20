@@ -5,8 +5,8 @@ function renderUserMenu() {
   if (!loggedIn) {
     authSection.innerHTML = `
         <div class="user-info" id="userInfo">
-          <a href="html/login.html" class="btn-log">Masuk</a>
-          <a href="html/register.html" class="btn-daftar">Daftar</a>
+          <a href="/website-topup/html/login.html" class="btn-log">Masuk</a>
+          <a href="/website-topup/html/register.html" class="btn-daftar">Daftar</a>
         </div>
       `;
     return;
