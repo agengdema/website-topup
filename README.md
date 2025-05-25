@@ -20,7 +20,7 @@ Proyek ini merupakan website layanan topup atau e-commerce untuk berbagai game o
 - /iconpay - File gambar diamond, koin, dan mata game lainnya  
 - /javacript - Berisi file JavaScript untuk membuat interaksi dinamis  
 - /payment - File gambar icon pembayaran (Dana, Gopay, dll.)  
-- index.html → Halaman depan  
+- index.html - Halaman depan  
 
 ## 📝 Catatan
 - Proyek ini adalah simulasi untuk pembelajaran
